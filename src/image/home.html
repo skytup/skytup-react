@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skytup - Your Digital Ecosystem</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #50c878;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+
+        .blogs {
+            padding: 100px 0;
+            background-color: #fff;
+        }
+
+        .blogs h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-thumbnail {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            /* 16:9 Aspect Ratio (720 / 1280 = 0.5625) */
+            overflow: hidden;
+        }
+
+        .blog-thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .blog-summary {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+
+
+
+        .hero {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            animation: fadeInUp 1s ease-out 0.3s;
+            animation-fill-mode: both;
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out 0.6s;
+            animation-fill-mode: both;
+        }
+
+        .search-box input {
+            flex-grow: 1;
+            padding: 15px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .search-box button {
+            padding: 15px 30px;
+            font-size: 1rem;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-box button:hover {
+            background-color: #45b069;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 100px 0;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .contact {
+            background-color: #f8f9fa;
+            padding: 100px 0;
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .location-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .location-container input {
+            flex: 1;
+        }
+
+        .location-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0 15px;
+            font-size: 0.9rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .location-btn:hover {
+            background-color: #45b069;
+        }
+
+        @media (max-width: 768px) {
+            .location-container {
+                flex-direction: column;
+            }
+
+            .location-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 10px;
+            }
+        }
+
+        .captcha-group {
+            margin-bottom: 30px;
+        }
+
+        .captcha-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .captcha-container input {
+            flex: 1;
+        }
+
+        #captchaImage {
+            width: 150px;
+            height: 50px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #refreshCaptcha {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #refreshCaptcha:hover {
+            background-color: #45b069;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #3a7bc8;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+            }
+
+            .contact-form {
+                padding: 30px;
+            }
+
+            .captcha-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            #captchaImage {
+                width: 100%;
+                height: auto;
+            }
+
+            #refreshCaptcha {
+                align-self: flex-end;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Elevate Your Digital Experience with Skytup</h1>
+                <p>Seamlessly connect, collaborate, and create in our cutting-edge digital ecosystem</p>
+                <div class="search-box">
+                    <input type="text" placeholder="Explore Skytup's features...">
+                    <button>Discover</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="features container">
+            <div class="feature">
+                <i class="fas fa-cloud"></i>
+                <h2>Intelligent Cloud Storage</h2>
+                <p>Access your files anytime, anywhere with our smart cloud technology</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h2>Fortress-level Security</h2>
+                <p>Your data is protected by military-grade encryption and advanced security protocols</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-project-diagram"></i>
+                <h2>Seamless Integration</h2>
+                <p>Connect with your favorite tools and boost your productivity</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-rocket"></i>
+                <h2>Lightning-Fast Performance</h2>
+                <p>Experience unparalleled speed and efficiency in all your digital tasks</p>
+            </div>
+        </section>
+
+        <section class="blogs">
+            <div class="container">
+                <h2>Latest Blogs</h2>
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <div class="blog-thumbnail">
+                            <img src="https://via.placeholder.com/1280x720" alt="Blog 1 Thumbnail">
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">The Future of Cloud Computing</h3>
+                            <p class="blog-summary">Explore the latest trends and innovations shaping the future of
+                                cloud technology.</p>
+                            <div class="blog-meta">
+                                <span>June 15, 2024</span>
+                                <span><i class="fas fa-eye"></i> 1.5k views</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-thumbnail">
+                            <img src="https://via.placeholder.com/1280x720" alt="Blog 2 Thumbnail">
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">Cybersecurity Best Practices</h3>
+                            <p class="blog-summary">Learn how to protect your digital assets with these essential
+                                cybersecurity tips.</p>
+                            <div class="blog-meta">
+                                <span>June 10, 2024</span>
+                                <span><i class="fas fa-eye"></i> 2.3k views</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-thumbnail">
+                            <img src="https://via.placeholder.com/1280x720" alt="Blog 3 Thumbnail">
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">AI in Everyday Life</h3>
+                            <p class="blog-summary">Discover how artificial intelligence is transforming our daily
+                                experiences.</p>
+                            <div class="blog-meta">
+                                <span>June 5, 2024</span>
+                                <span><i class="fas fa-eye"></i> 3.7k views</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <div class="location-container">
+                            <input type="text" id="location" name="location" readonly>
+                            <button type="button" id="getLocation" class="location-btn">
+                                <i class="fas fa-map-marker-alt"></i> Get Location
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group captcha-group">
+                        <label for="captcha">Enter Captcha</label>
+                        <div class="captcha-container">
+                            <input type="text" id="captcha" name="captcha" required>
+                            <img src="captcha.jpg" alt="CAPTCHA" id="captchaImage">
+                            <button type="button" id="refreshCaptcha" aria-label="Refresh Captcha">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const locationInput = document.getElementById('location');
+            const getLocationBtn = document.getElementById('getLocation');
+            const contactForm = document.getElementById('contactForm');
+            const refreshCaptchaButton = document.getElementById('refreshCaptcha');
+            const captchaImage = document.getElementById('captchaImage');
+
+            let hasLocationPermission = false;
+
+            // Function to get location
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition, showError);
+                } else {
+                    locationInput.value = "Geolocation is not supported by this browser.";
+                }
+            }
+
+            // Display coordinates in the form
+            function showPosition(position) {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                locationInput.value = `Latitude: ${latitude}, Longitude: ${longitude}`;
+                hasLocationPermission = true;
+            }
+
+            // Handle geolocation errors
+            function showError(error) {
+                switch (error.code) {
+                    case error.PERMISSION_DENIED:
+                        locationInput.value = "Location permission denied. Please try again.";
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        locationInput.value = "Location information is unavailable.";
+                        break;
+                    case error.TIMEOUT:
+                        locationInput.value = "The request to get user location timed out.";
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        locationInput.value = "An unknown error occurred.";
+                        break;
+                }
+                hasLocationPermission = false;
+            }
+
+            // Get location button click event
+            getLocationBtn.addEventListener('click', getLocation);
+
+            // Refresh captcha
+            refreshCaptchaButton.addEventListener('click', () => {
+                // In a real implementation, you'd call your server to get a new captcha image
+                captchaImage.src = 'captcha.jpg?' + new Date().getTime();
+            });
+
+            // Handle form submission
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                // Check if location permission is granted
+                if (!hasLocationPermission) {
+                    const confirmLocation = confirm("Location is not attached. Do you want to add your location?");
+                    if (confirmLocation) {
+                        getLocation();
+                        return; // Stop form submission and wait for location
+                    }
+                }
+
+                // Here you would typically send the form data to your server
+                alert('Form submitted successfully!');
+                contactForm.reset();
+                // Refresh captcha after submission
+                captchaImage.src = 'captcha.jpg?' + new Date().getTime();
+                hasLocationPermission = false; // Reset permission status
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+header {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+section {
+    margin-bottom: 2rem;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease;
+}
+
+/* Starter Plan */
+#starterPlan {
+    background-color: #ece7e3;
+    color: #000;
+    text-align: center;
+    border-radius: 8px;
+    padding: 2rem;
+    animation: pulse 2s infinite;
+}
+
+#starterPlan h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#starterPlan p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+#starterPlan button {
+    background-color: #2c3e50;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+#starterPlan button:hover {
+    background-color: #fff;
+    color: #e67e22;
+}
+
+/* Budget Range */
+#budgetRange {
+    width: 100%;
+    accent-color: #e67e22;
+}
+
+/* Filter Services */
+form div {
+    margin-bottom: 0.5rem;
+}
+
+/* Services */
+.service {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.service:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Static Product */
+#staticProduct {
+    background-color: #e0dfdf;
+    color: #000;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+/* Dynamic Product */
+#dynamicProduct {
+    background-color: #e0dfdf;
+    color: #000;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+/* Buttons */
+button {
+    background-color: #2c3e50;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e67e22;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    section {
+        padding: 1rem;
+    }
+
+    #starterPlan h2 {
+        font-size: 1.5rem;
+    }
+
+    #starterPlan p {
+        font-size: 1rem;
+    }
+
+    #starterPlan button {
+        font-size: 1rem;
+        padding: 0.8rem 1.6rem;
+    }
+}
